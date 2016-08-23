@@ -30,7 +30,6 @@ class Tile extends React.Component {
     }
 
     if (this.props.tile.explored) {
-      debugger;
       display += " revealed";
     }
 

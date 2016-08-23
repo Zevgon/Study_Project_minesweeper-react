@@ -8,14 +8,13 @@ class Game extends React.Component {
     this.state = {board: new mineBoard(10, 10)};
   }
 
-  let game = this;
   updateGame(tile, flagged) {
     if (!flagged) {
       tile.props.tile.explore();
     } else {
       tile.props.tile.toggleFlag();
     }
-    this.setState({board: this.props.tile.board});
+    tile.setState({board: tile.props.tile.board});
   }
 
   render () {
