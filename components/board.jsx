@@ -6,7 +6,6 @@ class Board extends React.Component {
     super();
   }
 
-
   render () {
     let grid = this.props.board.grid;
     let rows = [];
@@ -14,7 +13,7 @@ class Board extends React.Component {
     grid.forEach((row, idx) => {
       let tiles = [];
       for (let i = 0; i < row.length; i++) {
-        tiles.push(<li key={[idx, i]}><Tile tile={row[i]} updateGame={updateGame}/></li>);
+        tiles.push(<Tile key={`${i}${idx}`} tile={row[i]} updateGame={updateGame}/>);
       }
       rows.push(<ul key={idx}>{tiles}</ul>);
     });

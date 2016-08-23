@@ -5,11 +5,17 @@ import Board from './board';
 class Game extends React.Component {
   constructor () {
     super();
-    this.state = {board: new mineBoard(10, 5)};
+    this.state = {board: new mineBoard(10, 10)};
   }
 
-  updateGame() {
-
+  let game = this;
+  updateGame(tile, flagged) {
+    if (!flagged) {
+      tile.props.tile.explore();
+    } else {
+      tile.props.tile.toggleFlag();
+    }
+    this.setState({board: this.props.tile.board});
   }
 
   render () {

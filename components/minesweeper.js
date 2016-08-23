@@ -43,7 +43,7 @@ Tile.prototype.neighbors = function() {
   }.bind(this));
 
   return adjacentCoords.map(function(coord) {
-    return this.board.grid[coord[0]][coord[1]]
+    return this.board.grid[coord[0]][coord[1]];
   }.bind(this));
 };
 

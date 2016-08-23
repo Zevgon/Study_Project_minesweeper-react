@@ -27,3 +27,15 @@ li {
 h1 {
   text-align: center;
 }
+
+.revealed {
+  background-color: white;
+}
+
+.bombed.revealed {
+  background-color: red;
+}
+
+.flagged {
+  background-color: yellow;
+}

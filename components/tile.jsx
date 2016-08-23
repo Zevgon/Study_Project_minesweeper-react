@@ -4,21 +4,42 @@ import React from 'react';
 class Tile extends React.Component {
   constructor (props) {
     super(props);
+    // this.playMove = this.playMove.bind(this);
   }
 
+  // playMove(){
+  //   this.props.tile.explore();
+  //   this.render();
+  // }
+
+  bombCountDisplay(){
+    if (this.props.tile.explored) {
+      return this.props.tile.adjacentBombCount();
+    }
+  }
+
+  handleClick(e) {
+    debugger;
+    this.props.updateGame(this, e.altKey);
+  }
 
   render () {
-    let display = "";
-    if (this.props.flagged) {
-      display = "flagged";
-    } else if (this.props.explored) {
-      display = "revealed";
-    } else if (this.props.bombed) {
-      display = "bombed";
+    let display = "tile";
+    if (this.props.tile.flagged) {
+      display += " flagged";
+    }
+
+    if (this.props.tile.explored) {
+      debugger;
+      display += " revealed";
+    }
+
+    if (this.props.tile.bombed) {
+      display += " bombed";
     }
     return(
-      <div className={display}>
-      </div>
+      <li key={this.props.tile.pos} onClick={this.handleClick.bind(this)} className={`${display} group`}>{this.bombCountDisplay()}
+      </li>
     );
   }
 }
